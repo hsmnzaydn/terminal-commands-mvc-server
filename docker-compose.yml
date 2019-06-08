@@ -20,11 +20,11 @@ services:
       container_name: db
       environment:
         - AUTH=yes
-        - MONGODB_ADMIN_USER=terminalcommands
-        - MONGODB_ADMIN_PASS=hasan1994!*
-        - MONGODB_APPLICATION_DATABASE=terminalcommands
-        - MONGODB_APPLICATION_USER=terminalcommands
-        - MONGODB_APPLICATION_PASS=hasan1994!*
+        - MONGODB_ADMIN_USER=termcommands
+        - MONGODB_ADMIN_PASS=termcommands
+        - MONGODB_APPLICATION_DATABASE=termcommands
+        - MONGODB_APPLICATION_USER=termcommands
+        - MONGODB_APPLICATION_PASS=termcommands
       volumes:
         - ./data/db:/data/db
       ports:
