@@ -1,0 +1,32 @@
+version: "2"
+services:
+    node_web:
+      container_name: app
+      build: .
+      restart: always
+      environment:
+        - "DB_URL=$DB_URL"
+        - "BASE_URL=$BASE_URL"
+        - "PORT=$PORT"
+      ports:
+        - "8080:8080"
+        - "80:8080"
+      depends_on:
+        - db
+      volumes:
+        - ./app:/src/app
+    db:
+      image: aashreys/mongo-auth:latest
+      container_name: db
+      environment:
+        - AUTH=yes
+        - MONGODB_ADMIN_USER=terminalcommands
+        - MONGODB_ADMIN_PASS=hasan1994!*
+        - MONGODB_APPLICATION_DATABASE=terminalcommands
+        - MONGODB_APPLICATION_USER=terminalcommands
+        - MONGODB_APPLICATION_PASS=hasan1994!*
+      volumes:
+        - ./data/db:/data/db
+      ports:
+        - "27017:27017"
+
